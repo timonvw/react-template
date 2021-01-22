@@ -1,12 +1,6 @@
 stages:
   - build
 
-run docker benchmark:
- stage: build
- image: docker:latest
- script:
-   - docker build -t benchmark:latest --no-cache .
-
 run kaniko benchmark:
   stage: build
   image:
@@ -19,4 +13,4 @@ run kaniko benchmark:
       /kaniko/executor \
       --no-push \
       --context $CI_PROJECT_DIR \
-      --dockerfile $CI_PROJECT_DIR/Dockerfile \
+      --dockerfile $CI_PROJECT_DIR/security/Dockerfile \
