@@ -1,6 +1,12 @@
 stages:
   - build
 
+run docker benchmark:
+ stage: build
+ image: docker:latest
+ script:
+   - docker build -t benchmark $CI_PROJECT_DIR/Dockerfile 
+
 run kaniko benchmark:
   stage: build
   image:
