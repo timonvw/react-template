@@ -12,5 +12,5 @@ run kaniko benchmark:
     - |-
       /kaniko/executor \
       --no-push \
-      --context $CI_PROJECT_DIR \
+      --context $CI_PROJECT_DIR/security \
       --dockerfile $CI_PROJECT_DIR/security/Dockerfile \
