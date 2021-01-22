@@ -1,0 +1,16 @@
+stages:
+  - build
+
+run kaniko benchmark:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:debug-v1.2.0
+    entrypoint: [""]
+  before_script:
+    - mkdir -p /kaniko/.docker
+  script:
+    - |-
+      /kaniko/executor \
+      --no-push \
+      --context $CI_PROJECT_DIR \
+      --dockerfile $CI_PROJECT_DIR/Dockerfile \
