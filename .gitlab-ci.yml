@@ -5,7 +5,7 @@ run docker benchmark:
  stage: build
  image: docker:latest
  script:
-   - docker build -t benchmark:latest
+   - docker build -t benchmark:latest .
 
 run kaniko benchmark:
   stage: build
